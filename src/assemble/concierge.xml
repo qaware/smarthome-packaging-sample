@@ -80,6 +80,9 @@
             <includes>
                 <include>org.osgi.service.http-*</include>
                 <include>org.osgi.enterprise-*</include>
+                <!-- Logging -->
+                <include>*slf4j*-*</include>
+                <include>logback*</include>
                 <include>org.osgi.service.http-*</include>
 
                 <!-- Logging -->

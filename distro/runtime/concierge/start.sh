@@ -21,10 +21,15 @@ PROGNAME=`basename "$0"`
 RUNTIME_FOLDER=`cd "$DIRNAME/.."; pwd`
 BASE_FOLDER=`cd "$RUNTIME_FOLDER/.."; pwd`
 
-# set ports for HTTP(S) server
+# Set logger prefix to empty string if unset for logback config.
+: ${LOGGER_PREFIX:=}
+export LOGGER_PREFIX
+
+# set ports for HTTP(S) serverputt
 if [ "x$HTTP_PORT" = "x" ]; then
     HTTP_PORT="8080"
 fi
+
 if [ "x$HTTPS_PORT" = "x" ]; then
     HTTPS_PORT="8443"
 fi
@@ -131,10 +136,10 @@ setDebugOptions() {
         fi
 
         # chatty logging setttings using java.util.logging
-        JAVA_DEBUG_OPTS="$JAVA_DEBUG_OPTS -Djava.util.logging.config.file=$RUNTIME_FOLDER/etc/logging_debug.properties"
+        JAVA_DEBUG_OPTS="$JAVA_DEBUG_OPTS -Dlogback.configurationFile=$RUNTIME_FOLDER/etc/logback_debug.xml"
     else
         # more silent logging setttings using java.util.logging
-        JAVA_DEBUG_OPTS="$JAVA_DEBUG_OPTS -Djava.util.logging.config.file=$RUNTIME_FOLDER/etc/logging.properties"
+        JAVA_DEBUG_OPTS="$JAVA_DEBUG_OPTS -Dlogback.configurationFile=$RUNTIME_FOLDER/etc/logback.xml"
     fi
     # create logs directory if not yet there
     # see http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6244047

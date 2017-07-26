@@ -119,14 +119,19 @@
 -istart ${system.dir}/org.apache.felix.http.servlet-api-1.1.2*.jar
 -istart ${system.dir}/org.osgi.service.http-1.2.1*.jar
 
-# Enable logging
--install ${system.dir}/slf4j-api-1.7*.jar
--install ${system.dir}/slf4j-jdk14-1.7*.jar
--start ${system.dir}/slf4j-api-1.7*.jar
-# Install bridges for JCL, OSGi and log4j
--istart ${system.dir}/jcl-over-slf4j-1.7*.jar
--istart ${system.dir}/osgi-over-slf4j-1.7*.jar
--istart ${system.dir}/log4j-over-slf4j-1.7*.jar
+# Enable logging. Use slf4j facade with logback backend. Install bridges for JCL, JUL and log4j
+-install ${system.dir}/slf4j-api-${slf4j.version}*.jar
+-install ${system.dir}/logback-core-${logback.version}*.jar
+-install ${system.dir}/logback-classic-${logback.version}*.jar
+-start ${system.dir}/slf4j-api-${slf4j.version}*.jar
+-start ${system.dir}/logback-core-${logback.version}*.jar
+-start ${system.dir}/logback-classic-${logback.version}*.jar
+
+# Add Log bridges
+-istart ${system.dir}/jcl-over-slf4j-${slf4j.version}*.jar
+-istart ${system.dir}/jul-to-slf4j-${slf4j.version}*.jar
+-istart ${system.dir}/osgi-over-slf4j-${slf4j.version}*.jar
+-istart ${system.dir}/log4j-over-slf4j-${slf4j.version}*.jar
 
  # Enable common javax packages
 -istart ${system.dir}/javax.servlet-api-3.1*.jar
