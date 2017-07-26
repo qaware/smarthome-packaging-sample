@@ -95,7 +95,8 @@
 # -istart ${system.dir}/org.apache.felix.gogo.command-0.*.jar
 # -istart ${system.dir}/org.apache.felix.gogo.shell-0.*.jar
  
-# Concierge services
+# Concierge extensions, services (fragment, do NOT start)
+-istart ${concierge.dir}/org.eclipse.concierge.service.permission-${concierge.version}*.jar
 -istart ${concierge.dir}/org.eclipse.concierge.service.packageadmin-${concierge.version}*.jar
 -istart ${concierge.dir}/org.eclipse.concierge.service.startlevel-${concierge.version}*.jar
 -istart ${concierge.dir}/org.eclipse.concierge.service.xmlparser-${concierge.version}*.jar
@@ -113,7 +114,7 @@
 -istart ${system.dir}/org.apache.felix.eventadmin-1.4.8*.jar
 
 # Declerativ services DS
--istart ${system.dir}/org.apache.felix.scr-1.8.*.jar
+-istart ${system.dir}/org.apache.felix.scr-1.8.2*.jar
 
 # OSGi Http Service
 -istart ${system.dir}/org.apache.felix.http.servlet-api-1.1.2*.jar
@@ -241,6 +242,9 @@
 
 # Eclipse SmartHome Bindings. Start all bindings here
 -istart ${esh.dir}/org.eclipse.smarthome.binding.yahooweather-${esh.version}*.jar
+
+# FileInstall as last bundle to allow to install add-ons
+-istart ${system.dir}/org.apache.felix.fileinstall-3.5.0*.jar
 
 # Eclipse SmartHome Console extensions
 -istart ${esh.dir}/org.eclipse.smarthome.io.console-${esh.version}*.jar
