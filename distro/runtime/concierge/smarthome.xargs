@@ -2,7 +2,6 @@
 
 # Version configuration
 -Dconcierge.version=5.0.0
--Djetty.version=9.3.10
 
 # uncomment to clean storage first
 -Dorg.osgi.framework.storage.clean=onFirstInit
@@ -35,10 +34,11 @@
 
 # OSGi properties needed for export java internal packages
 -Dorg.osgi.framework.bootdelegation=\
+   javax.net,\
+   javax.net.ssl,\
    com.sun.org.apache.xerces.internal.jaxp,\
    sun.misc,\
-   sun.reflect,\
-   javax.script
+   sun.reflect
 
 
 -Dorg.osgi.framework.system.packages.extra=\
@@ -47,8 +47,8 @@
    javax.crypto.spec,\
    javax.inject,\
    javax.imageio,\
-   javax.imageio.spi,\ 
-   javax.imageio.stream,\ 
+   javax.imageio.spi,\
+   javax.imageio.stream,\
    javax.naming,\
    javax.naming.directory,\
    javax.naming.ldap,\
@@ -62,7 +62,7 @@
    javax.security.auth,\
    javax.security.auth.callback,\
    javax.security.auth.login,\
-   javax.security.auth.spi,\ 
+   javax.security.auth.spi,\
    javax.security.auth.x500,\
    javax.security.cert,\
    javax.sql,\
@@ -171,6 +171,9 @@
 -istart ${jetty.dir}/jetty-webapp-${jetty.version}*.jar
 -istart ${jetty.dir}/jetty-deploy-${jetty.version}*.jar
 -istart ${jetty.dir}/jetty-osgi-boot-${jetty.version}*.jar
+-istart ${jetty.dir}/websocket-api-${jetty.version}*.jar
+-istart ${jetty.dir}/websocket-common-${jetty.version}*.jar
+-istart ${jetty.dir}/websocket-client-${jetty.version}*.jar
 
 # HTTP client
 -istart ${system.dir}/httpcore-osgi-4.3.3*.jar

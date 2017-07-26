@@ -162,6 +162,7 @@
 
                 <!-- Jetty client -->
                 <include>jetty-client-*</include>
+                <include>websocket-*</include>
 
             </includes>
         </fileSet>

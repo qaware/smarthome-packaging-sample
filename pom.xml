@@ -14,8 +14,11 @@
     </description>
 
     <properties>
-        <jetty.version>9.3.10.M0</jetty.version>
+        <jetty.version>9.3.19.v20170502</jetty.version>
         <esh.version>${project.version}</esh.version>
+        <base.folder>/opt/esh</base.folder>
+        <runtime.folder>${base.folder}/runtime</runtime.folder>
+        <concierge.folder>${runtime.folder}/concierge</concierge.folder>
         <slf4j.version>1.7.25</slf4j.version>
         <logback.version>1.2.3</logback.version>
     </properties>
@@ -419,6 +422,16 @@
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-client</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty.websocket</groupId>
+            <artifactId>websocket-api</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty.websocket</groupId>
+            <artifactId>websocket-client</artifactId>
             <version>${jetty.version}</version>
         </dependency>
 
