@@ -67,6 +67,10 @@ findJvmVersion() {
     IS_AZUL_JAVASE=`echo $JAVA_VERSION_OUTPUT | sed -e 's/^.*Zulu-Embedded.*$/true/g'`
     if [ "$IS_AZUL_JAVASE" = "true" ] ; then JAVA_VENDOR="Azul" ; fi
     echo "JAVA_VENDOR=$JAVA_VENDOR"
+
+    IS_OPENJDK=`echo $JAVA_VERSION_OUTPUT | sed -e 's/^.*OpenJDK.*$/true/g'`
+    if [ "$IS_OPENJDK" = "true" ] ; then JAVA_VENDOR="OpenJDK" ; fi
+    echo "JAVA_VENDOR=$JAVA_VENDOR"
 }
 
 checkJvmVersion() {
