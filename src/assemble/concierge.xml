@@ -38,6 +38,17 @@
             </includes>
         </fileSet>
 
+        <fileSet>
+            <directory>${project.build.directory}/platform/</directory>
+            <outputDirectory>runtime/concierge</outputDirectory>
+            <filtered>false</filtered>
+            <fileMode>0644</fileMode>
+            <directoryMode>0755</directoryMode>
+            <includes>
+                <include>org.jacoco.*.jar</include>
+            </includes>
+        </fileSet>
+
         <!-- include concierge -->
         <fileSet>
             <directory>${project.build.directory}/concierge/concierge-incubation-5.0.0/</directory>

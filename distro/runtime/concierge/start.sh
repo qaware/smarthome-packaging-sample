@@ -104,6 +104,18 @@ setFlightRecorderOptions() {
     fi
 }
 
+# arg 0: jacoco code coverage: true/false
+setJacocoOptions() {
+    JJC_OPTS=""
+    if [ "$1" = "true" ] ; then
+        # Adds the jacoco coverage recording
+        if [ -n "${JACOCO+x}" ]; then
+            JJC_OPTS="$JJC_OPTS -javaagent:${RUNTIME_FOLDER}/concierge/org.jacoco.agent-${jacoco.version}-runtime.jar=destfile=$RUNTIME_FOLDER/concierge/jacoco.exec,append=true,output=file,dumponexit=true,inclnolocationclasses=true"
+            echo "Jacoco will record the coverage. Destination file is $RUNTIME_FOLDER/concierge/jacoco.exec"
+        fi
+    fi
+}
+
 # arg 0: debug enabled: true/false
 setJmxOptions() {
     # enable in debug mode JMX when running on compact3/fulljre
@@ -168,6 +180,7 @@ run() {
 
     setDebugOptions $DEBUG_ENABLED
     setFlightRecorderOptions $DEBUG_ENABLED
+    setJacocoOptions $DEBUG_ENABLED
     setJmxOptions $DEBUG_ENABLED
 
     # Find the concierge framework jar
