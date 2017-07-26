@@ -17,7 +17,7 @@
         <fileSet>
             <directory>${project.basedir}/distro/</directory>
             <outputDirectory>.</outputDirectory>
-            <filtered>false</filtered>
+            <filtered>true</filtered>
             <fileMode>0644</fileMode>
             <includes>
                 <include>**/*</include>
@@ -31,7 +31,7 @@
         <fileSet>
             <directory>${project.basedir}/distro/</directory>
             <outputDirectory>.</outputDirectory>
-            <filtered>false</filtered>
+            <filtered>true</filtered>
             <fileMode>0755</fileMode>
             <includes>
                 <include>**/*.sh</include>
@@ -78,6 +78,8 @@
             <fileMode>0644</fileMode>
 
             <includes>
+                <include>org.osgi.service.http-*</include>
+                <include>org.osgi.enterprise-*</include>
                 <include>org.osgi.service.http-*</include>
 
                 <!-- Logging -->
@@ -129,6 +131,8 @@
 
                 <!-- JmDNS -->
                 <include>org.jupnp-*</include>
+
+                <include>joda-time*</include>
             </includes>
         </fileSet>
 

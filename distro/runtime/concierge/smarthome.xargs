@@ -3,7 +3,6 @@
 # Version configuration
 -Dconcierge.version=5.0.0
 -Djetty.version=9.3.10
--Desh.version=0.9.0.b4
 
 # uncomment to clean storage first
 -Dorg.osgi.framework.storage.clean=onFirstInit
@@ -101,6 +100,9 @@
 -istart ${concierge.dir}/org.eclipse.concierge.service.startlevel-${concierge.version}*.jar
 -istart ${concierge.dir}/org.eclipse.concierge.service.xmlparser-${concierge.version}*.jar
 
+# Start OSGi services
+-istart ${system.dir}/org.osgi.enterprise-*.jar
+
 # Metatype Service
 -istart ${system.dir}/org.apache.felix.metatype-1.1.2*.jar
 
@@ -181,6 +183,8 @@
 # JmDNS
 -istart ${system.dir}/jmdns-3.5.1*.jar
 
+-istart ${system.dir}/joda-time*.jar
+
 # Eclipse SmartHome modules
 -istart ${esh.dir}/org.eclipse.smarthome.core-${esh.version}*.jar
 -istart ${esh.dir}/org.eclipse.smarthome.core.autoupdate-${esh.version}*.jar
@@ -216,12 +220,13 @@
 -istart ${esh.dir}/org.eclipse.smarthome.automation.commands-${esh.version}*.jar
 -istart ${esh.dir}/org.eclipse.smarthome.automation.core-${esh.version}*.jar
 -istart ${esh.dir}/org.eclipse.smarthome.automation.parser.gson-${esh.version}*.jar
--istart ${esh.dir}/org.eclipse.smarthome.automation.providers-${esh.version}*.jar
+# -istart ${esh.dir}/org.eclipse.smarthome.automation.providers-${esh.version}*.jar
 -istart ${esh.dir}/org.eclipse.smarthome.automation.rest-${esh.version}*.jar
 -istart ${esh.dir}/org.eclipse.smarthome.automation.module.core-${esh.version}*.jar
 -istart ${esh.dir}/org.eclipse.smarthome.automation.module.script-${esh.version}*.jar
 -istart ${esh.dir}/org.eclipse.smarthome.automation.module.script.defaultscope-${esh.version}*.jar
 -istart ${esh.dir}/org.eclipse.smarthome.automation.module.timer-${esh.version}*.jar
+# -istart ${esh.dir}/org.eclipse.smarthome.automation.provider.file-${esh.version}*.jar
 
 # Eclipse SmartHome UI
 -istart ${esh.dir}/org.eclipse.smarthome.ui.paper-${esh.version}*.jar

@@ -5,7 +5,7 @@
 
     <groupId>org.eclipse.smarthome</groupId>
     <artifactId>smarthome-packaging-sample</artifactId>
-    <version>0.9.0-SNAPSHOT</version>
+    <version>0.9.0.b5</version>
 
     <packaging>pom</packaging>
 
@@ -15,7 +15,7 @@
 
     <properties>
         <jetty.version>9.3.10.M0</jetty.version>
-        <esh.version>0.9.0.b4</esh.version>
+        <esh.version>${project.version}</esh.version>
     </properties>
 
     <build>
@@ -115,6 +115,11 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.2</version>
+        </dependency>
 
         <!-- Eclipse Smarthome dependencies - CORE -->
         <dependency>
@@ -267,6 +272,11 @@
         </dependency>
         <dependency>
             <groupId>org.eclipse.smarthome.automation</groupId>
+            <artifactId>org.eclipse.smarthome.automation.provider.file</artifactId>
+            <version>${esh.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.smarthome.automation</groupId>
             <artifactId>org.eclipse.smarthome.automation.parser.gson</artifactId>
             <version>${esh.version}</version>
         </dependency>
@@ -318,6 +328,11 @@
         </dependency>
 
         <!-- OSGI http services -->
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.enterprise</artifactId>
+            <version>5.0.0</version>
+        </dependency>
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.service.http</artifactId>
