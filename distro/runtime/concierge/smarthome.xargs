@@ -147,7 +147,7 @@
 # Other libs
 -istart ${system.dir}/com.ibm.icu.base-*.jar
 -istart ${system.dir}/org.antlr.runtime*.jar
--istart ${system.dir}/com.google.guava*.jar
+-istart ${system.dir}/guava*.jar
 -istart ${system.dir}/com.google.inject*.jar
 -istart ${system.dir}/gson-2.2.4*.jar
  
