@@ -199,7 +199,7 @@ run() {
         set -x
     fi
 
-    $JAVA_BIN $JAVA_OPTS $JAVA_DEBUG_OPTS $JFR_OPTS $JMX_OPTS \
+    exec $JAVA_BIN $JAVA_OPTS $JAVA_DEBUG_OPTS $JFR_OPTS $JJC_OPTS $JMX_OPTS \
 	    -Djava.awt.headless=true \
 	    -Djava.library.path=lib \
 	    -Dfile.encoding="UTF-8" \
