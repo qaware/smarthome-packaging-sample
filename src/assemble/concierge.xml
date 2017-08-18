@@ -122,7 +122,7 @@
                 <include>org.apache.felix.eventadmin*</include>
                 <include>org.apache.felix.metatype*</include>
                 <include>org.apache.felix.http*</include>
-                <include>org.apache.felix.webconsole-4.2*</include>
+                <include>org.apache.felix.webconsole*</include>
 
                 <!-- Apache GoGo console -->
                 <include>org.apache.felix.gogo.*</include>
