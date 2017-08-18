@@ -12,4 +12,4 @@ RUN apk add --update unzip \
  && apk del wget \
  && rm -rf /var/cache/apk/*
 EXPOSE 5005 8080
-ENTRYPOINT exec /opt/esh/runtime/concierge/start.sh debug
+ENTRYPOINT exec /opt/esh/runtime/concierge/start.sh

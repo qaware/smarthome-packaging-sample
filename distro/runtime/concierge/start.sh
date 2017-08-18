@@ -166,7 +166,12 @@ setDebugOptions() {
 }
 
 run() {
-    DEBUG_ENABLED=false
+    if [ "$REMOTE_DEBUG" = "true" ] ; then
+	    DEBUG_ENABLED=true
+	else
+	    DEBUG_ENABLED=false
+	fi
+	
     while [ "$1" != "" ]; do
         case $1 in
             'debug')
