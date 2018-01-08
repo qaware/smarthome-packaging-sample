@@ -6,22 +6,22 @@ You can use this example to build an own minimal distribution with a very optimi
 
 More information about concierge: https://www.eclipse.org/concierge/index.php
 
-1. Prerequisites - Install Maven
-================
+## 1. Prerequisites - Install Maven
+
 Please use the instructions on main project's readme to install maven: https://github.com/eclipse/smarthome#1-prerequisites
 * Make sure **mvn** command is available on your path.
 * Make sure you're using a **JDK 8**.
 
-2. Checkout
-================
+## 2. Checkout
+
 Checkout the source code from GitHub, e.g. by running:
 
 ```
 git clone https://github.com/eclipse/smarthome-packaging-sample.git
 ```
 
-3. Build the distribution
-================
+## 3. Build the distribution
+
 Run
 ```
 mvn clean install
@@ -47,8 +47,8 @@ You can find the created distribution under **/target/smarthome-packaging-sample
  * **etc**: Quartz configuration, Jetty configuration, keystore
 * **userdata**: This folder is created during the first startup and contains persistent userdata and the osgi storage.
 
-4. Start runtime
-================
+## 4. Start runtime
+
 
 The minimum requirement for running this distribution is:
 * JavaSE 8, or JavaSE Embedded 8, or Azul Zulu-Embedded 8
@@ -62,17 +62,17 @@ unzip smarthome-packaging-sample-[version].zip
 ./start.sh
 ```
 
-5. Using the UI
-================
+## 5. Using the UI
+
 The distribution already includes the PaperUI. 
 Goto: **http://your-host:8080/** you will be redirected to **/paperui/index.html**
 
 Also included is the Apache Felix Web Console. The Apache Felix Web Console is a simple tool to inspect and manage OSGi framework
 Goto: **http://your-host:8080/system/console/**
 
-Customize the distribution
-================
-## Concierge configuration with XARGS file
+## Customize the distribution
+
+### Concierge configuration with XARGS file
 The .xargs file can contain both runtime properties for configuring the framework, as well as a set of framework commands. Properties are declared as `-Dkey=value`. The following commands are allowed:
 
 * `-install <bundle URL> `: installs a bundle from a given bundle URL
@@ -84,7 +84,7 @@ The .xargs file can contain both runtime properties for configuring the framewor
 
 See for more details: https://www.eclipse.org/concierge/documentation.php#basic
 
-## How to add further bundles?
+### How to add further bundles?
 1. Add your bundle as dependecy in the pom.xml. For example:
 ```
   <!-- Eclipse SmartHome dependencies - Bindings -->
@@ -104,7 +104,7 @@ The bundle couldn't be started? Please check the following conditions:
  * Is the JAR file included in the assembled ZIP? Check the /src/assemble/concierge.xml which defines the included file sets of the assembly.
  * Maybe the required import-packages are not satisfied. Add another bundle which exports the required packages.
 
-## Change the OSGi Shell
+### Change the OSGi Shell
 The sample does already include two versions of osgi shell implementations:
  * Concierge Shell (default)
  * Apache Felix GoGo
@@ -120,19 +120,19 @@ like:
 
 At next startup you will see the **g!** prompt instead of **concierge>**
 
-## Passing own options to JVM
+### Passing own options to JVM
 You can use `JAVA_OPTS` for passing own parameter to JVM e.g. the Java Heap size etc.
 
 
-## Changing Logging backend
+### Changing Logging backend
 
 This distribution uses java.util.logging (JUL) as logging backend to put all logging information to files or console. This is the most resource effective solution, as it only requires a bridge from slf4j to JUL (size about 8 kB).
 
 If you want to change the logging to another backend, e.g. logback, read [here](Logging.md) for more information.
 
 
-Limitations
-================
+## Limitations
+
 It's not possible to run XText under concierge due to dependencies on equinox runtime. 
 For this reason all modeling packages have been removed from this distribution. 
 There are no .items, .rule, .thing, etc. files. Try to use new generation rule engine to manage rules.
